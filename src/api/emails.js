@@ -18,7 +18,7 @@ router.post("/upload", upload.single("file"), async (req, res) => {
 
 	try {
 		const text = await extractLinesFromPDF(pdf.path, linesToSplit);
-		const emailResponse = await sendEmail(text, body.email);
+		const emailResponse = await sendEmail(text, body.email, body?.subject);
 
 		res.json({
 			message: emailResponse.message,
