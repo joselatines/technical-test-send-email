@@ -1,53 +1,48 @@
-# Express API Starter
+## Endpoints
 
-How to use this template:
+- **POST /api/v1/emails/upload**: Upload a PDF file, extract the specified number of lines from it, and send the extracted text via email.
 
-```sh
-npx create-express-api --directory my-api-name
+### Request
+
+- **Headers:**
+
+  - `Content-Type: multipart/form-data`
+
+- **Body:**
+  - `file`: The PDF file to be uploaded.
+  - `email`: The email address to send the extracted text.
+  - `subject` (optional): The subject of the email.
+  - `lines` (optional): The number of lines to extract from the PDF. If not specified, defaults to 30 lines.
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/joselatines/technical-test-send-email
+   ```
+2. Navigate to the project directory::
+   ```bash
+   cd technical-test-send-email
+   ```
+3. Install the dependencies:
+
+```bash
+ npm install
 ```
 
-Includes API Server utilities:
+Configure your email service and any necessary environment variables.
 
-* [morgan](https://www.npmjs.com/package/morgan)
-  * HTTP request logger middleware for node.js
-* [helmet](https://www.npmjs.com/package/helmet)
-  * Helmet helps you secure your Express apps by setting various HTTP headers. It's not a silver bullet, but it can help!
-* [dotenv](https://www.npmjs.com/package/dotenv)
-  * Dotenv is a zero-dependency module that loads environment variables from a `.env` file into `process.env`
-* [cors](https://www.npmjs.com/package/cors)
-  * CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
+## Usage
 
-Development utilities:
+Start the server:
 
-* [nodemon](https://www.npmjs.com/package/nodemon)
-  * nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected.
-* [eslint](https://www.npmjs.com/package/eslint)
-  * ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
-* [jest](https://www.npmjs.com/package/jest)
-  * Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
-* [supertest](https://www.npmjs.com/package/supertest)
-  * HTTP assertions made easy via superagent.
-
-## Setup
-
-```
-npm install
+```bash
+ npm start
 ```
 
-## Lint
+Send a POST request to /upload with the required form data to extract lines from a PDF and send it via email.
 
-```
-npm run lint
-```
+## Notes
 
-## Test
-
-```
-npm test
-```
-
-## Development
-
-```
-npm run dev
-```
+- Ensure that the email service is properly configured to avoid issues with sending emails.
+- The API currently extracts text lines directly from the PDF, which may include formatting and layout issues depending on the PDF's structure.
