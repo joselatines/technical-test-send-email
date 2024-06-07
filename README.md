@@ -25,9 +25,9 @@
    cd technical-test-send-email
    ```
 3. Install the dependencies:
-```bash
- npm install
-```
+   ```bash
+   npm install
+   ```
 
 Configure your email service and any necessary environment variables.
 
