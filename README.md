@@ -25,7 +25,6 @@
    cd technical-test-send-email
    ```
 3. Install the dependencies:
-
 ```bash
  npm install
 ```
@@ -35,12 +34,11 @@ Configure your email service and any necessary environment variables.
 ## Usage
 
 Start the server:
-
 ```bash
  npm start
 ```
 
-Send a POST request to /upload with the required form data to extract lines from a PDF and send it via email.
+Send a POST request to /api/v1/upload with the required form data to extract lines from a PDF and send it via email.
 
 ## Notes
 
